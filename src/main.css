@@ -1,0 +1,992 @@
+/*
+	Solid State by HTML5 UP (Refactored)
+	- Centralized variables for easy theming.
+	- Consolidated media queries for maintainability.
+*/
+
+/*--------------------------------------------------
+  IMPORTS & VARIABLES
+--------------------------------------------------*/
+
+/* @import url('/assets/css/fontawesome-all.min.css'); */
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  /* Colors */
+  --color-text: #ffffff;
+  --color-text-strong: #ffffff;
+  --color-border: rgba(255, 255, 255, 0.7);
+
+  --palette-1: 167, 186, 66;
+  --palette-2: 149,204,186;
+  --palette-3: 255,222,222;
+
+
+
+
+
+  /* Backgrounds & Wrappers */
+  --color-wrapper-style1: #2e3141;
+  --color-wrapper-style1-transparent: #2e3141aa; 
+  --color-wrapper-style2: #3f4357;
+  --color-wrapper-style5: #4b4f64;
+  --color-wrapper-style4: #34808b;
+  --color-wrapper-style3: #3ea6b6;
+  --color-wrapper-style6: #8979dc;
+  --color-wrapper-style7: #53478d;
+  --color-wrapper-spotlight-rgb: 109, 95, 178;
+  --color-wrapper-spotlight: #6d5fb2;
+  --color-wrapper-spotlight-light: #6d5fb275;
+
+
+  --color-wrapper-style1: #2f4858; 
+  --color-wrapper-style2: #4b577b;
+  --color-wrapper-style5: #806091;
+  --color-wrapper-style4: #ba6590;
+  --color-wrapper-style3: #3ea6b6;
+  --color-wrapper-style6: #e77379;
+  --color-wrapper-style7: #53478d;
+  --color-wrapper-spotlight-rgb: 109, 95, 178;
+  --color-wrapper-spotlight: #b24942;
+  --color-wrapper-spotlight-light: #6d5fb275;
+
+
+
+
+  /* Links & Headings */
+  --color-link: #fbc9ae;
+  --color-link-hover: #f89257;
+  --color-heading-link: var(--color-link);
+
+  --color-link-alt: #d5cff8;
+  --color-link-hover-alt: #978cdb;
+
+  /* Buttons & Accents */
+  --color-primary: var(--color-wrapper-spotlight);
+  --color-primary-alt: var(--color-wrapper-spotlight);
+  --color-primary-dark: var(--color-wrapper-style1);
+  --color-primary-darker: var(--color-wrapper-style1);
+  --color-accent: var(--color-link-hover);
+  --color-accent-hover: var(--color-link);
+  --color-frame-accent: var(--color-link-hover);
+
+  /* Components */
+  /* --color-feature-box: #6d5fb27d; */
+  --color-feature-box: var(--color-wrapper-spotlight-light);
+  --color-feature-box-alt: var(--color-feature-box);
+  --color-pub-box: var(--color-feature-box);
+  --color-pub-box-hover: rgb(95, 80, 166);
+
+  /* Fonts */
+  --font-primary: 'Raleway', Helvetica, sans-serif;
+  --font-secondary: 'Helvetica', Helvetica, sans-serif;
+  --font-monospace: 'Courier New', monospace;
+
+  /* Sizing */
+  --header-height: 3.5em;
+}
+
+/*--------------------------------------------------
+  RESET & BASE STYLES
+--------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+body { -webkit-text-size-adjust: none; line-height: 1; }
+html { box-sizing: border-box; scroll-behavior: smooth; scroll-padding: 20px; }
+*, *:before, *:after { box-sizing: inherit; }
+@-ms-viewport { width: device-width; }
+body { -ms-overflow-style: scrollbar; }
+body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/*--------------------------------------------------
+  MAIN BODY & TYPOGRAPHY
+--------------------------------------------------*/
+body {
+  background-color: var(--color-wrapper-style1);
+  /* background-image: url("../../images/bg.jpg"); */
+  background-size: cover, cover;
+  background-attachment: fixed, fixed;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  font-family: var(--font-secondary);
+  font-size: 14pt;
+  font-weight: lighter;
+  line-height: 1.65;
+}
+
+.background-image {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind the content */
+    background-image: url("../images/bg.jpg"); /* Your background image */
+    background-size: contain;
+    background-position: center;
+    transform: scale(1.2);
+  }
+#page-wrapper {
+    position: relative;
+    z-index: 1; /* Establishes a stacking context */
+}
+
+p { margin: 0 0 2em 0; }
+strong, b { color: var(--color-text-strong); font-weight: 520; }
+em, i { font-style: italic; }
+sub, sup { font-size: 0.8em; position: relative; }
+sub { top: 0.5em; }
+sup { top: -0.5em; }
+
+a {
+  transition: color 0.2s ease-in-out;
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a.alt {
+  color: var(--color-link-alt);
+}
+
+a.alt:hover {
+  color: var(--color-link-hover-alt);
+}
+
+
+a.special:before {
+    content: '>';
+    font-weight: 700;
+    display: inline-block;
+    font-size: 1em;
+    height: 2em;
+    line-height: 1.75em;
+    margin-right: 0.85em;
+    text-align: left;
+    text-indent: 0.15em;
+    vertical-align: middle;
+    width: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 1em 0;
+}
+
+h1, h2 { text-transform: uppercase; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: var(--color-heading-link);
+  text-decoration: none;
+  border-bottom: 0;
+}
+h1 { font-size: 1.4em; }
+h2 { font-size: 1.1em; }
+h3 { font-size: 0.9em; }
+h4, h5, h6 { font-size: 0.7em; }
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+  padding-bottom: 0.5em;
+  border-bottom: solid 2px var(--color-border);
+}
+
+hr {
+  border: 0;
+  border-bottom: solid 2px var(--color-border);
+  margin: 2.5em 0;
+}
+hr.major { margin: 4em 0; }
+
+code {
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 5px;
+  border: solid 2px var(--color-border);
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
+  margin: 0 0.25em;
+  padding: 0.25em 0.65em;
+}
+
+blockquote {
+  border-left: solid 4px var(--color-border);
+  font-style: italic;
+  margin: 0 0 2em 0;
+  padding: 0.5em 0 0.5em 2em;
+}
+
+/*--------------------------------------------------
+  LAYOUT (GRID, WRAPPER, ETC.)
+--------------------------------------------------*/
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+.row > * { box-sizing: border-box; }
+.row.gtr-uniform > * > :last-child { margin-bottom: 0; }
+
+/* Alignment */
+.row.aln-left { justify-content: flex-start; }
+.row.aln-center { justify-content: center; }
+.row.aln-right { justify-content: flex-end; }
+.row.aln-top { align-items: flex-start; }
+.row.aln-middle { align-items: center; }
+.row.aln-bottom { align-items: flex-end; }
+.row > .imp { order: -1; }
+
+/* Columns */
+.row > .col-1 { width: 8.33333%; }
+.row > .col-2 { width: 16.66667%; }
+.row > .col-3 { width: 25%; }
+.row > .col-4 { width: 33.33333%; }
+.row > .col-5 { width: 41.66667%; }
+.row > .col-6 { width: 50%; }
+.row > .col-7 { width: 58.33333%; }
+.row > .col-8 { width: 66.66667%; }
+.row > .col-9 { width: 75%; }
+.row > .col-10 { width: 83.33333%; }
+.row > .col-11 { width: 91.66667%; }
+.row > .col-12 { width: 100%; }
+
+/* Offsets */
+.row > .off-1 { margin-left: 8.33333%; }
+.row > .off-2 { margin-left: 16.66667%; }
+.row > .off-3 { margin-left: 25%; }
+.row > .off-4 { margin-left: 33.33333%; }
+.row > .off-5 { margin-left: 41.66667%; }
+.row > .off-6 { margin-left: 50%; }
+.row > .off-7 { margin-left: 58.33333%; }
+.row > .off-8 { margin-left: 66.66667%; }
+.row > .off-9 { margin-left: 75%; }
+.row > .off-10 { margin-left: 83.33333%; }
+.row > .off-11 { margin-left: 91.66667%; }
+.row > .off-12 { margin-left: 100%; }
+
+/* Gutters */
+.row { margin-left: -1.75em; }
+.row > * { padding-left: 1.75em; }
+.row.gtr-uniform { margin-top: -1.75em; }
+.row.gtr-uniform > * { padding-top: 1.75em; }
+
+/*--------------------------------------------------
+  COMPONENTS (BUTTONS, FEATURES, WRAPPERS, ETC.)
+--------------------------------------------------*/
+
+/* Buttons */
+input[type="submit"], input[type="reset"], input[type="button"], button, .button {
+  appearance: none;
+  transition: background-color 0.2s ease-in-out;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: inset 0 0 0 2px var(--color-primary-alt);
+  color: var(--color-text) !important;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.8em;
+  font-weight: 700;
+  height: 3.75em;
+  letter-spacing: 0.1em;
+  line-height: 3.75em;
+  padding: 0 2em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, button:hover, .button:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+.button.primary {
+  color: var(--color-primary-dark);
+}
+.button.spotlight {
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+.button.spotlight:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* Header */
+#header {
+  /* transition: background-color 0.3s ease-in-out; */
+  background-color: var(--color-wrapper-style1-transparent);
+  backdrop-filter: blur(10px);
+  height: var(--header-height);
+  left: 0;
+  line-height: var(--header-height);
+  padding: 0 1.25em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  pointer-events: auto !important;
+}
+
+#header nav {
+  font-family: var(--font-primary);
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  position: absolute;
+  right: 0.7em;
+  top: 0.7em;
+}
+
+#header nav a {
+  border: 0;
+  padding: 0 1em;
+}
+
+/* Banner */
+#banner {
+  padding: 9em 0 4.75em 0;
+  position: relative;
+  overflow: hidden;
+}
+#banner .inner {
+  margin: 5em auto;
+  width: 65em;
+}
+#banner h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: solid 2px var(--color-accent);
+}
+#banner h2 {
+  font-family: var(--font-primary);
+  font-size: 1.4em;
+  font-weight: 510;
+  text-transform: none;
+}
+
+#banner h3 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  text-transform: uppercase;
+  border-bottom: solid 2px var(--color-border);
+}
+#banner h4 {
+  font-family: var(--font-primary);
+  font-size: 1em;
+  font-weight: 500;
+  text-transform: none;
+}
+
+
+.floating-banner-image {
+  position: absolute; 
+  
+  top: 200px; 
+  right: 5%;
+  
+  width: 30vw; 
+  /* Add a max-width to prevent it from getting huge on large monitors */
+  max-width: 450px;
+  height: auto; /* Maintain the aspect ratio */
+
+  /* Ensure it floats above other content like text */
+  z-index: 10;
+}
+
+
+/* Features */
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0 0 2em 0;
+}
+.features article {
+  padding: 1.75em;
+  background-color: var(--color-feature-box);
+  border-radius: 5px;
+  margin: 0 0 1.5em 0;
+  width: 100%; 
+}
+.features article.style2 {
+  background-color: var(--color-feature-box-alt);
+}
+
+/* Framed box*/
+.framed {
+	border-radius: 0px;
+	box-shadow:
+	  -50px -50px 0 -45px var(--color-frame-accent),
+	  0px 0px 0 -0px var(--color-feature-box);
+
+  }
+
+.framed.style2 {
+	box-shadow:
+		-50px -50px 0 -45px var(--color-wrapper-spotlight),
+		0px 0px 0 -0px  var(--color-feature-box-alt);
+	}
+
+
+/* Wrapper Sections */
+.wrapper {
+  /* Set a local variable for the background color */
+  --_wrapper-bg: var(--color-wrapper-style1); 
+  background-color: var(--_wrapper-bg);
+  margin: 6.5em 0;
+  position: relative;
+}
+
+.wrapper .inner {
+  padding: 3em 0 1em 0;
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .image {
+  border-radius: 100%;
+  margin: 0 4em 2em 4em;
+  width: 30em;
+  overflow: hidden;
+}
+.wrapper .image img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+
+.wrapper .video {
+  margin: 2em;
+  width: 30em;
+  max-width: 30%;
+  flex-shrink: 0;
+}
+
+.wrapper .video video {
+  display: block;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.wrapper .content {
+  width: 100%;
+}
+
+.wrapper:before, .wrapper:after {
+  content: '';
+  display: block;
+  /* avoiding a tiny seam between the triangles and the main content: */
+  height: calc(6.5em + 2px); 
+  position: absolute;
+  width: 100%;
+  background-color: var(--_wrapper-bg); 
+}
+
+/* :before creates the top divider */
+.wrapper:before {
+  left: 0;
+  top: -6.5em;
+  /* Clips the element into a triangle pointing down and to the left */
+  clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+  z-index: 1;
+}
+
+/* :after creates the bottom divider */
+.wrapper:after {
+  bottom: calc(-6.5em - 2px);
+  left: 0;
+  /* Clips the element into a triangle pointing up and to the right */
+  /* clip-path: polygon(0% 0%, 100% 100%, 100% 0%); */
+  z-index: 0;
+}
+
+/* The .alt class flips the shapes horizontally */
+.wrapper.alt:before {
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+/* .wrapper.alt:after {
+  clip-path: polygon(0% 100%, 100% 0%, 0% 0%);
+} */
+
+.wrapper.alt .inner {
+  flex-direction: row-reverse;
+}
+
+
+/*
+   The style classes are now incredibly simple. 
+   They only need to change the value of the --_wrapper-bg variable.
+*/
+.wrapper.style2 { --_wrapper-bg: var(--color-wrapper-style2); }
+.wrapper.style3 { --_wrapper-bg: var(--color-wrapper-style3); }
+.wrapper.style4 { --_wrapper-bg: var(--color-wrapper-style4); }
+.wrapper.style5 { --_wrapper-bg: var(--color-wrapper-style5); }
+.wrapper.style6 { --_wrapper-bg: var(--color-wrapper-style6); }
+.wrapper.style7 { --_wrapper-bg: var(--color-wrapper-style7); }
+.wrapper.spotlight { --_wrapper-bg: var(--color-wrapper-spotlight); }
+
+
+/* Spotlight Wrapper Variation
+.wrapper.spotlight .inner {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+.wrapper.spotlight .image {
+  border-radius: 100%;
+  margin: 0 1em 2em 2em;
+  width: 30em;
+  overflow: hidden;
+}
+.wrapper.spotlight .image img {
+  border-radius: 100%;
+  width: 100%;
+}
+.wrapper.spotlight .content {
+  width: 100%;
+}
+.wrapper.spotlight:nth-child(2n - 1) .inner {
+  flex-direction: row-reverse;
+}
+.wrapper.spotlight:nth-child(2n - 1) .image {
+  margin: 0 2em 2em 1em;
+} */
+
+
+
+
+/* Publications */
+
+
+.pubs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5em;
+  width: 100%;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+.pubs article.framed {
+  padding: 0;
+  background-color: var(--color-feature-box);
+  border-radius: 5px;
+  margin: 1.5em 1.5em 1.5em 0;
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pubs article.style2 {
+  background-color: var(--color-feature-box-alt);
+}
+
+
+.pubtext {
+    flex: 1 1 auto; /* DO grow, DO shrink, let it be automatic */
+    min-width: 0;   /* A key trick to allow text to wrap properly in flexbox */
+    margin: 1em;      /* Remove old margins */
+}
+
+.pubtext span{
+  color: var(--color-link-hover);
+}
+
+.pubtext h1{
+  font-size: 1.0em;
+  text-transform: none;
+
+}
+
+.pubtext p {
+  font-size: 0.8em;
+}
+
+.pubs .image img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.pubs .image {
+  border-radius: 5px;
+  margin: 0 2em 1em 0;
+}
+
+.pubs .image video {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10001;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Icon */
+
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+}
+
+    .icon:before {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        text-transform: none !important;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 400;
+    }
+
+    .icon > .label {
+        display: none;
+    }
+
+    .icon:before {
+        line-height: inherit;
+    }
+
+    .icon.solid:before {
+        font-weight: 900;
+    }
+
+    .icon.brands:before {
+        font-family: 'Font Awesome 5 Brands';
+    }
+
+ul.icons li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+}
+
+/* DNA etc */
+.sequence-wrapper {
+  margin-top: 4rem;
+  overflow-x: hidden;
+  width: 100%; 
+  text-align: left;
+  padding-top: 30px;
+}
+
+
+.sequence {
+  font-family: 'Roboto Mono', 'Inter', "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500
+}
+#rna-sequence {
+  color: rgba(255, 255, 255, 0.4); /* Muted grey color */
+}
+#dna-sequence {
+  color: var(--color-link-hover);
+  padding-top: 30px;
+}
+
+
+
+
+/* --- YouTube Video Section --- */
+
+/* This targets your specific section to center its content */
+#youtube-videos .inner {
+    justify-content: center; /* Centers the content block horizontally */ 
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+/* 1. The responsive container */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 80vw;
+    max-width: 900px; /* Adjust this to make the video larger or smaller */
+    margin: 0 auto 2em auto; /* Centers the container and adds space below */
+    border-radius: 12px; /* A nice rounded border */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* Adds a subtle shadow for depth */
+
+    /* This creates the 16:9 aspect ratio */
+    padding-top: 56.25%; /* (9 / 16 = 0.5625) */
+}
+
+/* 2. The iframe itself */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Removes the default iframe border */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Removes the default iframe border */
+}
+
+
+/* Footer */
+#footer {
+    padding: 5em 0 3em 0;
+    width: 55em;
+    display: flex;
+    margin: 0 auto;
+}
+
+
+
+/*--------------------------------------------------
+  MOBILE MENU STYLES
+--------------------------------------------------*/
+
+/* Hamburger Icon Styling */
+#menu-toggle {
+    display: none; /* Hidden on desktop */
+    position: absolute;
+    top: 50%;
+    right: 1.25em;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10001; /* Ensure it's above other header content */
+    padding: 0 0.5em;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary-alt);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger icon animation to 'X' */
+#menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+#menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/*--------------------------------------------------
+  RESPONSIVE STYLES
+--------------------------------------------------*/
+
+/* Large Desktop */
+@media screen and (max-width: 1850px) {
+  #banner {
+    padding: 7em 0 8.25em 0;
+    margin-bottom: -6.5em;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  body, input, select, textarea { font-size: 13pt; }
+}
+
+/* Standard Desktop */
+/* Probably want a smaller bg image here */
+@media screen and (max-width: 1280px) {
+  body, input, select, textarea { font-size: 13pt; }
+  #banner {
+    padding: 7em 3em 12.375em 3em;
+    margin-bottom: -4.75em;
+    background-image: linear-gradient(to top, rgba(46, 49, 65, 0.7), rgba(46, 49, 65, 0.7)), url("../../images/bg.jpg");
+  }
+  #banner .inner { width: 100%; }
+}
+
+/* Spotlight Stacking */
+@media screen and (max-width: 960px) {
+  .wrapper.spotlight .inner {
+    display: block;
+  }
+  .wrapper.spotlight .image {
+    margin: 0 0 1em 0 !important;
+    max-width: 80%;
+    width: 18em;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 990px) {
+  body, input, select, textarea { font-size: 12.5pt; }
+
+  .features article {
+    width: 100%; /* Stack on tablets */
+    margin: 1em 0;
+  }
+}
+
+@media screen and (max-width: 990px) {
+    .wrapper .inner , .wrapper.alt .inner{
+        flex-direction: column;
+    }
+
+    /* Optional but recommended: Adjust the video's width on mobile */
+    .wrapper .video {
+        max-width: 100%; /* Or another value like 80% */
+        width: 100%;
+        margin-top: 2em; /* Add some space above the video */
+    }
+}
+
+
+
+/* Large Mobile */
+@media screen and (max-width: 736px) {
+  body, input, select, textarea { font-size: 12pt; }
+  h2 { font-size: 1em; }
+  h3 { font-size: 0.8em; }
+
+  .row { margin-left: -1.25em; }
+  .row > * { padding-left: 1.25em; }
+
+#menu-toggle {
+        display: block;
+    }
+
+    /* Reposition Logo */
+    #header .logo {
+        position: absolute;
+        left: 1.25em;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Style the mobile navigation menu */
+    #header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Full screen height */
+        background-color: var(--color-wrapper-style1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        padding-top: var(--header-height);
+        z-index: 9999;
+  }
+
+
+#header nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    #header nav a {
+        font-size: 1.5em; /* Bigger text for easier tapping */
+        margin: 1em 0;
+        padding: 0.5em 1em;
+    }
+
+    /* Remove conflicting desktop background style */
+    #banner {
+        background-image: none;
+    }
+
+    /* Footer padding on mobile */
+    #footer {
+        width: 100%;
+        padding: 3em 1.5em 1em 1.5em; /* Add side padding */
+    }
+
+.pubs article.framed {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .pubs .image {
+        flex-basis: auto; /* Reset the width from desktop */
+        width: 100%;      /* Make image container take full width */
+        max-width: 350px; /* Optional: prevent image from becoming overly large */
+        margin: 0 auto;   /* Center the image block */
+    }
+
+
+}
+
+
+
+
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+  html, body { min-width: 320px; }
+  body, input, select, textarea { font-size: 11pt; }
+
+  /* Make all columns full-width on mobile */
+  .row > * {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+
