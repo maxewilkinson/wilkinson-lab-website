@@ -332,6 +332,11 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
   background-color: var(--color-accent-hover);
 }
 
+/* Web Components */
+site-header, site-footer {
+  display: contents;
+}
+
 /* Header */
 #header {
   /* transition: background-color 0.3s ease-in-out; */
